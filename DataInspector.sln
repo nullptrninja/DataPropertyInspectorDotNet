@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataInspector.Core", "src\DataInspector.Core\DataInspector.Core.csproj", "{F215A9DB-54D3-4556-8B4F-308C70E0FC06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FFDA6B83-B686-4255-841C-A8ACA1816358}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B5EE9D6D-C632-49B5-AB46-ED3D11FFB6A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataInspector.Parser", "src\DataInspector.Parser\DataInspector.Parser.csproj", "{6F376070-7D7F-4978-9418-2B2155188499}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataInspector.DataAccess", "src\DataInspector.DataAccess\DataInspector.DataAccess.csproj", "{008C2A43-C5E9-4212-96D0-6C5D2340D826}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataInspector.CLI", "src\DataInspector.CLI\DataInspector.CLI.csproj", "{C85DE80B-F751-45A3-B454-4994D7D32A9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F823F043-0542-4128-9195-FB90F75B3B80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Domain", "test\samples\Sample.Domain\Sample.Domain.csproj", "{DBFF4E37-987A-4F9A-9004-08135566C02E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F215A9DB-54D3-4556-8B4F-308C70E0FC06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F215A9DB-54D3-4556-8B4F-308C70E0FC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F215A9DB-54D3-4556-8B4F-308C70E0FC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F215A9DB-54D3-4556-8B4F-308C70E0FC06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F376070-7D7F-4978-9418-2B2155188499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F376070-7D7F-4978-9418-2B2155188499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F376070-7D7F-4978-9418-2B2155188499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F376070-7D7F-4978-9418-2B2155188499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008C2A43-C5E9-4212-96D0-6C5D2340D826}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008C2A43-C5E9-4212-96D0-6C5D2340D826}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008C2A43-C5E9-4212-96D0-6C5D2340D826}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008C2A43-C5E9-4212-96D0-6C5D2340D826}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85DE80B-F751-45A3-B454-4994D7D32A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85DE80B-F751-45A3-B454-4994D7D32A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85DE80B-F751-45A3-B454-4994D7D32A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85DE80B-F751-45A3-B454-4994D7D32A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFF4E37-987A-4F9A-9004-08135566C02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFF4E37-987A-4F9A-9004-08135566C02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFF4E37-987A-4F9A-9004-08135566C02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFF4E37-987A-4F9A-9004-08135566C02E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F215A9DB-54D3-4556-8B4F-308C70E0FC06} = {FFDA6B83-B686-4255-841C-A8ACA1816358}
+		{6F376070-7D7F-4978-9418-2B2155188499} = {FFDA6B83-B686-4255-841C-A8ACA1816358}
+		{008C2A43-C5E9-4212-96D0-6C5D2340D826} = {FFDA6B83-B686-4255-841C-A8ACA1816358}
+		{C85DE80B-F751-45A3-B454-4994D7D32A9A} = {FFDA6B83-B686-4255-841C-A8ACA1816358}
+		{F823F043-0542-4128-9195-FB90F75B3B80} = {B5EE9D6D-C632-49B5-AB46-ED3D11FFB6A8}
+		{DBFF4E37-987A-4F9A-9004-08135566C02E} = {F823F043-0542-4128-9195-FB90F75B3B80}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDA09CB7-8CF5-4A17-8211-B3B252D94164}
+	EndGlobalSection
+EndGlobal
