@@ -3,6 +3,9 @@ using System.Linq;
 using System.Reflection;
 
 namespace DataInspector.Core.DAL {
+    /// <summary>
+    /// Information about a full call chain. Note that the root object is not included in the call chain.
+    /// </summary>
     public class CallChainInfo {
         public PropertyInfo[] CallChainProperties { get; set; }
 
@@ -10,6 +13,6 @@ namespace DataInspector.Core.DAL {
 
         public Type CallChainResolvesToType => CallChainProperties.Last().PropertyType;
 
-        public bool LastPropertyIsArray => CallChainResolvesToType.IsArray;
+        public bool IncludesArrayIndexer => CallChainProperties.Any(p => p.PropertyType.IsArray);
     }
 }

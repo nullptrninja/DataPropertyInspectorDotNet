@@ -1,17 +1,19 @@
 ﻿namespace DataInspector.Core.Expression {
+    /// <summary>
+    /// Represents a queryable-chunk. In most cases there will only be one of these from an expression but parsers may generate
+    /// multiple QueryableTokens based on querying/DAL requirements such as arrays or multi-query strategies.
+    /// </summary>
     public class QueryableToken {
-        public string Subexpression { get; }
+        public string SubExpression { get; }
 
         public bool IsArrayExpression { get; }
 
         public int ArrayIndex { get; }
 
-        public QueryableToken(string subexpression) : this(subexpression, false, -1) { }
-
-        public QueryableToken(string subexpression, bool doesExpressionResolveToArray, int arrayIndex) {
-            this.Subexpression = subexpression;
-            this.IsArrayExpression = doesExpressionResolveToArray;
-            this.ArrayIndex = arrayIndex;
+        public QueryableToken(string subexpression, bool doesExpressionAccessAnArray, int arrayIndex) {
+            SubExpression = subexpression;
+            IsArrayExpression = doesExpressionAccessAnArray;
+            ArrayIndex = arrayIndex;
         }
     }
 }

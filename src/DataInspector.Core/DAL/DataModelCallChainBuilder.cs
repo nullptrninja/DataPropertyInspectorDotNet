@@ -98,14 +98,20 @@ namespace DataInspector.Core.DAL {
                 subCallsToProcess.RemoveAt(subCallsToProcess.Count - 1);
                 
                 var propertiesForSubCall = GetPropertiesFromType(subCall.PropertyType);
-
+                
                 // For arrays, add them in and keep cycling.
                 if (subCall.PropertyType.IsArray) {
                     currentCallChain.Add(subCall);
-                    AddPropertiesToCallChainsToProcess(propertiesForSubCall);
 
-                    mCallChains.Add(CreateCallChainInfo(currentCallChain));        // Copy the current call chain
-                    continue;
+                    if (propertiesForSubCall.Any()) {
+                        AddPropertiesToCallChainsToProcess(propertiesForSubCall);
+                    }
+                    else {
+                        // If an array does not have any properties within an array it means it's a primitive type. Treat it like a leaf-property
+                        var callChain = CreateCallChainInfo(currentCallChain);
+                        mCallChains.Add(callChain);
+                        currentCallChain.Remove(currentCallChain.Last());
+                    }
                 }
                 else if (propertiesForSubCall.Length > 0) {
                     // Regular exploration, keep digging into the property tree
