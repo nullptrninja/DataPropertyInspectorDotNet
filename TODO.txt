@@ -1,4 +1,0 @@
-- Support integer keyed arrays at any depth
-- Remove all compiler related stuff - convert to command line
-- Add CLI-driven interface support
-- Add reflection-based DAL

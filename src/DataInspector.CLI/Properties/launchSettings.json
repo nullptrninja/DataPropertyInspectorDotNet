@@ -2,7 +2,7 @@
   "profiles": {
     "DataInspector.CLI": {
       "commandName": "Project",
-      "commandLineArgs": "--inputLib \"E:\\Code\\DynamicDataInspector\\test\\samples\\Sample.Domain\\bin\\Debug\\netcoreapp3.1\\Sample.Domain.dll\" --inputTypeName Sample.Domain.Root --outputDir derp3 --outputNs Sample.Domain.DAL"
+      "commandLineArgs": "$(SolutionDir)src\\DataInspector.CLI\\$(OutDir)\\dalgen.exe --inputLib \"$(SolutionDir)test\\samples\\Sample.Domain\\$(OutDir)Sample.Domain.dll\" --inputTypeName Sample.Domain.Root --outputDir \"$(SolutionDir)test\\samples\\Sample.Domain\\DAL\" --outputNs Sample.Domain.DAL"
     }
   }
 }

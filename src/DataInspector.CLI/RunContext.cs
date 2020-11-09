@@ -9,7 +9,5 @@
         public string OutputNamespace { get; set; }
 
         public DALType DALType { get; set; }
-
-        public bool UseLocalDeps { get; set; }
     }
 }

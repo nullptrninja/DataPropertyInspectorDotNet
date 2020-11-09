@@ -2,7 +2,10 @@
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.CommandLine.Parsing;
+using System.IO;
+using System.Text;
 using DataInspector.Core.DAL;
+using DataInspector.Core.Utilities;
 using DataInspector.DataAccess.Factory;
 
 namespace DataInspector.CLI {
@@ -31,14 +34,13 @@ namespace DataInspector.CLI {
             rootCommand.Description = "Generates a data access layer from a type in an external assembly.";
 
             RunContext context = null;
-            rootCommand.Handler = CommandHandler.Create<string, string, string, string, DALType, bool>((inputLib, inputTypeName, outputDir, outputNS, dalType, useLocalDeps) => {
+            rootCommand.Handler = CommandHandler.Create<string, string, string, string, DALType>((inputLib, inputTypeName, outputDir, outputNS, dalType) => {
                 context = new RunContext {
                     InputLibrary = inputLib,
                     InputTypeName = inputTypeName,
                     OutputDirectory = outputDir,
                     OutputNamespace = outputNS,
                     DALType = dalType,
-                    UseLocalDeps = useLocalDeps,            // Not supported yet
                 };
 
                 RunGenerator(context);
@@ -55,7 +57,8 @@ namespace DataInspector.CLI {
             
             var dalFactory = GetFactory(context.DALType);
             var generatedDalCode = dalFactory.EmitDataAccessLayerCode(callChainData, dalContext);
-            
+
+            WriteFile(context.OutputDirectory, TypeUtility.GetClassNameFromType(dalContext.RootDataModelType) + ".cs", generatedDalCode);
         }
 
         private static IDataModelAccessLayerFactory GetFactory(DALType dalType) {
@@ -69,6 +72,13 @@ namespace DataInspector.CLI {
                 default:
                     throw new NotSupportedException($"No supported DAL Factory of type: {dalType}");
             }
+        }
+
+        private static void WriteFile(string outputDir, string fileName, string contents) {
+            string fullPath = Path.Combine(outputDir, fileName);
+
+            using var stream = new StreamWriter(fullPath, false, Encoding.UTF8);
+            stream.WriteLine(contents);
         }
     }
 }

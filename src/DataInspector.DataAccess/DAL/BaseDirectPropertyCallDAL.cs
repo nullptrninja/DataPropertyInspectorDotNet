@@ -25,7 +25,7 @@ namespace DataInspector.DataAccess.DAL {
                 throw new ArgumentException($"Expression: {expression ?? "<null>"} could not be parsed.");
             }
 
-            object subExprResult = null;
+            object subExprResult;
             if (parsedQuery.IsArrayExpression) {
                 subExprResult = Invoke(targetObject, parsedQuery.LookUpKey, parsedQuery.ArrayIndicies);
             }

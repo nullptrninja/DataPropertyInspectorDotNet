@@ -16,7 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\DataInspector.CLI\DataInspector.CLI.csproj" />
     <ProjectReference Include="..\samples\Sample.Domain\Sample.Domain.csproj" />
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(SolutionDir)src\DataInspector.CLI\$(OutDir)\dalgen.exe --inputLib &quot;$(SolutionDir)test\samples\Sample.Domain\$(OutDir)Sample.Domain.dll&quot; --inputTypeName Sample.Domain.Root --outputDir &quot;$(SolutionDir)test\samples\Sample.Domain\DAL&quot; --outputNs Sample.Domain.DAL" />
+  </Target>
 
 </Project>

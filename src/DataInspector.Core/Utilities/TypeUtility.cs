@@ -7,7 +7,7 @@ namespace DataInspector.Core.Utilities {
         }
 
         public static string GetClassNameFromType(Type t) {
-            return t.FullName.Replace('.', '_');
+            return $"{t.FullName.Replace('.', '_')}_DataAccessLayer";
         }
 
         public static string GetUsingNamespaceForType(Type t) {

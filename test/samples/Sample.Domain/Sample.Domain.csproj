@@ -8,4 +8,8 @@
     <ProjectReference Include="..\..\..\src\DataInspector.DataAccess\DataInspector.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DAL\" />
+  </ItemGroup>
+
 </Project>

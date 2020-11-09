@@ -13,7 +13,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWithDirectPropertiesAndStringTypes_ThenResultIsReturned(string query, string expectedValue) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             var exprResults = dal.FetchValue(model, query) as string;
@@ -28,7 +28,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWithArrayPropertiesAndStringTypes_ThenResultIsReturned(string query, string expectedValue) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             var exprResults = dal.FetchValue(model, query) as string;
@@ -43,7 +43,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWithArrayPropertiesAndIntegerTypes_ThenResultIsReturned(string query, int expectedValue) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             var exprResults = (int)dal.FetchValue(model, query);
@@ -57,7 +57,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWithArrayPropertiesAndFloatTypes_ThenResultIsReturned(string query, float expectedValue) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             var exprResults = (float)dal.FetchValue(model, query);
@@ -72,7 +72,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWithArrayPropertiesAndBooleanTypes_ThenResultIsReturned(string query, bool expectedValue) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             var exprResults = (bool)dal.FetchValue(model, query);
@@ -86,7 +86,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWitArrayPropertiesAndInvalidIndices_ThenExceptionIsThrown(string query) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             Action a = () => dal.FetchValue(model, query);
@@ -101,7 +101,7 @@ namespace DataInspector.IntegrationTests {
         public void WhenQueryingWitArrayPropertiesAndNoSubProperties_ThenNullIsReturned(string query) {
             // Arrange
             var model = GenerateTestObject01();
-            var dal = new Sample_Domain_Root();
+            var dal = new Sample_Domain_Root_DataAccessLayer();
 
             // Act
             var result = dal.FetchValue(model, query);
