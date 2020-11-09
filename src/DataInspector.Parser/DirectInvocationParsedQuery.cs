@@ -3,8 +3,6 @@ using System.Linq;
 
 namespace DataInspector.Core.Expression {
     public class DirectInvocationParsedQuery : IParsedQuery {
-        public QueryableToken[] Tokens { get; }
-
         public bool IsValid => Tokens.Any();
 
         public bool IsArrayExpression => Tokens.Any(t => t.IsArrayExpression && t.ArrayIndex >= 0);
@@ -12,6 +10,8 @@ namespace DataInspector.Core.Expression {
         public int[] ArrayIndicies => Tokens.Select(q => q.ArrayIndex).ToArray();
 
         public string LookUpKey => GetDALLookUpKey(Tokens);
+
+        private QueryableToken[] Tokens { get; }
 
         public DirectInvocationParsedQuery(QueryableToken[] queryTokens) {
             Tokens = queryTokens;

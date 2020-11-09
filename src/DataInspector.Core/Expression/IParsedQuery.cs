@@ -4,7 +4,7 @@
     /// expression inside of an <see cref="IDataModelAccessLayer"/>.
     /// </summary>
     public interface IParsedQuery {
-        QueryableToken[] Tokens { get; }
+        //QueryableToken[] Tokens { get; }
 
         bool IsValid { get; }
 

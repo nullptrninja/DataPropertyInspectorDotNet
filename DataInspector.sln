@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Domain", "test\sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataInspector.IntegrationTests", "test\DataInspector.IntegrationTests\DataInspector.IntegrationTests.csproj", "{1F773C64-C2EB-4694-B757-F91716FD98C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataInspector.PerformanceBenchmarking", "test\DataInspector.PerformanceBenchmarking\DataInspector.PerformanceBenchmarking.csproj", "{4658EFAE-213A-42F6-9306-15705A5BEF6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1F773C64-C2EB-4694-B757-F91716FD98C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F773C64-C2EB-4694-B757-F91716FD98C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F773C64-C2EB-4694-B757-F91716FD98C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4658EFAE-213A-42F6-9306-15705A5BEF6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4658EFAE-213A-42F6-9306-15705A5BEF6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4658EFAE-213A-42F6-9306-15705A5BEF6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4658EFAE-213A-42F6-9306-15705A5BEF6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{F823F043-0542-4128-9195-FB90F75B3B80} = {B5EE9D6D-C632-49B5-AB46-ED3D11FFB6A8}
 		{DBFF4E37-987A-4F9A-9004-08135566C02E} = {F823F043-0542-4128-9195-FB90F75B3B80}
 		{1F773C64-C2EB-4694-B757-F91716FD98C9} = {B5EE9D6D-C632-49B5-AB46-ED3D11FFB6A8}
+		{4658EFAE-213A-42F6-9306-15705A5BEF6C} = {B5EE9D6D-C632-49B5-AB46-ED3D11FFB6A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BDA09CB7-8CF5-4A17-8211-B3B252D94164}

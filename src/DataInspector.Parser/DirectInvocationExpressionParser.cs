@@ -23,9 +23,9 @@ namespace DataInspector.Parser{
         /// <param name="expression">Expression to parse</param>
         /// <returns>ParsedQuery with parsing information</returns>
         public IParsedQuery Parse(string expression) {
-            var tokens = expression.ToLower().Split(".", StringSplitOptions.RemoveEmptyEntries);
+            var tokens = expression.Split(".", StringSplitOptions.RemoveEmptyEntries);
             var parsedTokens = new List<QueryableToken>();
-            var subExprBuffer = new List<string>();
+            var subExprBuffer = new List<string>(tokens.Length);
 
             for (var i = 0; i < tokens.Length; ++i) {
                 var token = tokens[i];
@@ -50,7 +50,8 @@ namespace DataInspector.Parser{
                 }
             }
 
-            // Add final aggregate subexpr if anything is left. It won't be an array in this case
+            // Add final aggregate subexpr if anything is left. It won't be an array in this case since the array-check
+            // within the loop would've already cleared it out if it was.
             if (subExprBuffer.Count > 0) {
                 var aggPt = new QueryableToken(string.Join('.', subExprBuffer), false, -1);
                 parsedTokens.Add(aggPt);
