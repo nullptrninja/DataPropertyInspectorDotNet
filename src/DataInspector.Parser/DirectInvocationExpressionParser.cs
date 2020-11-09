@@ -22,7 +22,7 @@ namespace DataInspector.Parser{
         /// </summary>
         /// <param name="expression">Expression to parse</param>
         /// <returns>ParsedQuery with parsing information</returns>
-        public IParsedQuery Parse(string expression) {
+        public IParsedExpression Parse(string expression) {
             var tokens = expression.Split(".", StringSplitOptions.RemoveEmptyEntries);
             var parsedTokens = new List<QueryableToken>();
             var subExprBuffer = new List<string>(tokens.Length);
@@ -57,7 +57,7 @@ namespace DataInspector.Parser{
                 parsedTokens.Add(aggPt);
             }
 
-            var result = new DirectInvocationParsedQuery(parsedTokens.ToArray());
+            var result = new DirectInvocationParsedExpression(parsedTokens.ToArray());
             return result;
         }
     }

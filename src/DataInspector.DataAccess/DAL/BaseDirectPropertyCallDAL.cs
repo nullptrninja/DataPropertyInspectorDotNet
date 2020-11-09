@@ -20,23 +20,31 @@ namespace DataInspector.DataAccess.DAL {
 
         public object FetchValue(TDataModel targetObject, string expression) {
             var parsedQuery = mParser.Parse(expression);
-
             if (!parsedQuery.IsValid) {
                 throw new ArgumentException($"Expression: {expression ?? "<null>"} could not be parsed.");
             }
 
+            return FetchValue(targetObject, parsedQuery);
+        }
+
+        public object FetchValue(TDataModel targetObject, IParsedExpression expression) {
             object subExprResult;
-            if (parsedQuery.IsArrayExpression) {
-                subExprResult = Invoke(targetObject, parsedQuery.LookUpKey, parsedQuery.ArrayIndicies);
+            if (expression.IsArrayExpression) {
+                subExprResult = Invoke(targetObject, expression.LookUpKey, expression.ArrayIndicies);
             }
             else {
-                subExprResult = Invoke(targetObject, parsedQuery.LookUpKey);
+                subExprResult = Invoke(targetObject, expression.LookUpKey);
             }
 
             return subExprResult;
         }
 
         public TOutput FetchValue<TOutput>(TDataModel targetObject, string expression) {
+            var r = FetchValue(targetObject, expression);
+            return (TOutput)r;
+        }
+
+        public TOutput FetchValue<TOutput>(TDataModel targetObject, IParsedExpression expression) {
             var r = FetchValue(targetObject, expression);
             return (TOutput)r;
         }

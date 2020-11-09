@@ -2,7 +2,7 @@
 using System.Linq;
 
 namespace DataInspector.Core.Expression {
-    public class DirectInvocationParsedQuery : IParsedQuery {
+    public class DirectInvocationParsedExpression : IParsedExpression {
         public bool IsValid => Tokens.Any();
 
         public bool IsArrayExpression => Tokens.Any(t => t.IsArrayExpression && t.ArrayIndex >= 0);
@@ -11,9 +11,9 @@ namespace DataInspector.Core.Expression {
 
         public string LookUpKey => GetDALLookUpKey(Tokens);
 
-        private QueryableToken[] Tokens { get; }
+        public QueryableToken[] Tokens { get; }
 
-        public DirectInvocationParsedQuery(QueryableToken[] queryTokens) {
+        public DirectInvocationParsedExpression(QueryableToken[] queryTokens) {
             Tokens = queryTokens;
         }
 
