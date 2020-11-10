@@ -8,7 +8,7 @@ using Sample.Domain.DAL;
 
 namespace DataInspector.PerformanceBenchmarking {
     [SimpleJob(runStrategy: RunStrategy.Throughput, launchCount: 1, warmupCount: 1, invocationCount: 1)]
-    public class LargeBatchedDirectInvokeDALTests {
+    public class LargeBatchedDALTests {
         private readonly List<string> DirectCallInputs = new List<string> {
             "DerpChild.Id",
             "DerpChild.Uuid",

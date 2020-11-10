@@ -23,7 +23,8 @@ namespace DataInspector.DataAccess.DAL {
         }
 
         public TOutput FetchValue<TOutput>(TDataModel targetObject, string expression) {
-            throw new NotImplementedException();
+            var val = FetchValue(targetObject, expression);
+            return (TOutput)val;
         }
 
         public object FetchValue(TDataModel targetObject, IParsedExpression expression) {
@@ -31,7 +32,8 @@ namespace DataInspector.DataAccess.DAL {
         }
 
         public TOutput FetchValue<TOutput>(TDataModel targetObject, IParsedExpression expression) {
-            throw new NotImplementedException();
+            var val = FetchValue(targetObject, expression);
+            return (TOutput)val;
         }
 
         private object FetchValueByReflection(TDataModel rootObject, IParsedExpression expression) {
@@ -42,32 +44,22 @@ namespace DataInspector.DataAccess.DAL {
             for (var i = 0; i < expression.Tokens.Length; ++i) {
                 var token = expression.Tokens[i];
 
-                var targetProp = GetPropertyByName(currentType, token.SubExpression);
-                currentType = targetProp.DeclaringType;
+                var nextProp = GetPropertyByName(currentType, token.SubExpression);
                 if (token.IsArrayExpression) {
-                    currentObject = targetProp.GetValue(currentObject, new object[] { token.ArrayIndex });                    
+                    currentObject = (nextProp.GetValue(currentObject) as Array).GetValue(token.ArrayIndex);
+                    currentType = nextProp.PropertyType.GetElementType();
                 }
                 else {
-                    currentObject = targetProp.GetValue(currentObject);
-                }
+                    currentObject = nextProp.GetValue(currentObject);
+                    currentType = nextProp.PropertyType;
+                }                
             }
 
             return currentObject;
         }
 
-        private PropertyInfo[] GetPropertiesForType(Type t) {
-            if (t.IsArray) {
-                var props = t.GetElementType().GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
-                return props;
-            }
-            else {
-                var props = t.GetProperties(BindingFlags.Public | BindingFlags.GetProperty | BindingFlags.Instance);
-                return props;
-            }
-        }
-
         private PropertyInfo GetPropertyByName(Type t, string propName) {
-            var prop = GetPropertiesForType(t).Single(p => p.Name.Equals(propName, StringComparison.InvariantCultureIgnoreCase));
+            var prop = t.GetProperty(propName);
             return prop;
         }
     }

@@ -3,8 +3,8 @@
 namespace DataInspector.PerformanceBenchmarking {
     class Program {
         static void Main(string[] args) {
-            //BenchmarkRunner.Run<DirectInvokeDALTests>();
-            BenchmarkRunner.Run<LargeBatchedDirectInvokeDALTests>();
+            BenchmarkRunner.Run<SingleCallDALTests>();
+            //BenchmarkRunner.Run<LargeBatchedDALTests>();
         }
     }
 }

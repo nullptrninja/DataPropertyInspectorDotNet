@@ -8,7 +8,7 @@ using Sample.Domain.DAL;
 
 namespace DataInspector.PerformanceBenchmarking {
     [SimpleJob(runStrategy: RunStrategy.Throughput, launchCount: 1, warmupCount: 1, invocationCount: 1000000)]
-    public class DirectInvokeDALTests {
+    public class SingleCallDALTests {
         private readonly List<string> DirectCallInputs = new List<string> {
             "DerpChild.Id",
             "DerpChild.Uuid",
@@ -50,8 +50,6 @@ namespace DataInspector.PerformanceBenchmarking {
             "DerpChild.AllTheFlerbs[7].SubIds[3]",
         };
 
-        private const int BatchSize = 1000000;
-
         private Random mRand;
         private Sample_Domain_Root_DataAccessLayer mDalUnderTest;
         private Root mTestModel;
@@ -69,29 +67,23 @@ namespace DataInspector.PerformanceBenchmarking {
 
         [Benchmark]
         public void BatchedDirectPropertyCallTests() {
-            for (var i = 0; i < BatchSize; ++i) {
-                var index = mRand.Next(DirectCallInputs.Count);
-                var expr = DirectCallInputs[index];
-                mDalUnderTest.FetchValue(mTestModel, expr);
-            }
+            var index = mRand.Next(DirectCallInputs.Count);
+            var expr = DirectCallInputs[index];
+            mDalUnderTest.FetchValue(mTestModel, expr);
         }
 
         [Benchmark]
         public void BatchedArrayCallTests() {
-            for (var i = 0; i < BatchSize; ++i) {
-                var index = mRand.Next(ArrayCallInputs.Count);
-                var expr = ArrayCallInputs[index];
-                mDalUnderTest.FetchValue(mTestModel, expr);
-            }
+            var index = mRand.Next(ArrayCallInputs.Count);
+            var expr = ArrayCallInputs[index];
+            mDalUnderTest.FetchValue(mTestModel, expr);
         }
 
         [Benchmark]
         public void BatchedMixedCallTests() {
-            for (var i = 0; i < BatchSize; ++i) {
-                var index = mRand.Next(MixedDataSet.Length);
-                var expr = MixedDataSet[index];
-                mDalUnderTest.FetchValue(mTestModel, expr);
-            }
+            var index = mRand.Next(MixedDataSet.Length);
+            var expr = MixedDataSet[index];
+            mDalUnderTest.FetchValue(mTestModel, expr);
         }
 
         private static Root GenerateTestObject() {

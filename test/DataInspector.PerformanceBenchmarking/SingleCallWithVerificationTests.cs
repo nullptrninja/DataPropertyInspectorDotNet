@@ -9,7 +9,7 @@ using Sample.Domain.DAL;
 namespace DataInspector.PerformanceBenchmarking {
     [SimpleJob(runStrategy: RunStrategy.Throughput, launchCount: 1, warmupCount: 1, invocationCount: 1000000)]
     [MemoryDiagnoser]
-    public class DirectInvokeDALWithVerificationTests {
+    public class SingleCallWithVerificationTests {
         private readonly List<Tuple<string, object>> DirectCallInputs = new List<Tuple<string, object>> {
             new Tuple<string, object>("DerpChild.Id", 1000),
             new Tuple<string, object>("DerpChild.Uuid", "some uuid"),
