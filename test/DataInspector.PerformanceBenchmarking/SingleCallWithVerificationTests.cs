@@ -13,9 +13,9 @@ namespace DataInspector.PerformanceBenchmarking {
         private readonly List<Tuple<string, object>> DirectCallInputs = new List<Tuple<string, object>> {
             new Tuple<string, object>("DerpChild.Id", 1000),
             new Tuple<string, object>("DerpChild.Uuid", "some uuid"),
-            new Tuple<string, object>("DerpChild.ReferentialGlorp.Name", "derp_refGlorp"),
-            new Tuple<string, object>("DerpChild.ReferentialGlorp.IsEnabled", true),
-            new Tuple<string, object>("DerpChild.ReferentialGlorp.ValueF", 3.14159f),
+            new Tuple<string, object>("DerpChild.OtherGlorp.Name", "derp_refGlorp"),
+            new Tuple<string, object>("DerpChild.OtherGlorp.IsEnabled", true),
+            new Tuple<string, object>("DerpChild.OtherGlorp.ValueF", 3.14159f),
             new Tuple<string, object>("GlorpChild.Name", "derp_baseGlorp"),
             new Tuple<string, object>("GlorpChild.IsEnabled", false),
             new Tuple<string, object>("GlorpChild.ValueF", 1.1f),
@@ -147,7 +147,7 @@ namespace DataInspector.PerformanceBenchmarking {
                             SubIds = new int[] { 1, 2, 3, 4 }
                         },
                     },
-                    ReferentialGlorp = new Glorp() {
+                    OtherGlorp = new Glorp() {
                         IsEnabled = true,
                         Name = "derp_refGlorp",
                         ValueF = 3.14159f

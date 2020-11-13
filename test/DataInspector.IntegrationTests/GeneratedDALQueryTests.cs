@@ -7,7 +7,7 @@ using Xunit;
 namespace DataInspector.IntegrationTests {
     public class GeneratedDALQueryTests {
         [Theory]
-        [InlineData("DerpChild.ReferentialGlorp.Name", "derp_refGlorp")]
+        [InlineData("DerpChild.OtherGlorp.Name", "derp_refGlorp")]
         [InlineData("RootNodeId", "root_100")]
         [InlineData("GlorpChild.Name", "derp_baseGlorp")]
         public void WhenQueryingWithDirectPropertiesAndStringTypes_ThenResultIsReturned(string query, string expectedValue) {
@@ -53,7 +53,7 @@ namespace DataInspector.IntegrationTests {
         }
 
         [Theory]
-        [InlineData("DerpChild.ReferentialGlorp.ValueF", 3.14159f)]
+        [InlineData("DerpChild.OtherGlorp.ValueF", 3.14159f)]
         public void WhenQueryingWithArrayPropertiesAndFloatTypes_ThenResultIsReturned(string query, float expectedValue) {
             // Arrange
             var model = GenerateTestObject01();
@@ -67,7 +67,7 @@ namespace DataInspector.IntegrationTests {
         }
 
         [Theory]
-        [InlineData("DerpChild.ReferentialGlorp.IsEnabled", true)]
+        [InlineData("DerpChild.OtherGlorp.IsEnabled", true)]
         [InlineData("GlorpChild.IsEnabled", false)]
         public void WhenQueryingWithArrayPropertiesAndBooleanTypes_ThenResultIsReturned(string query, bool expectedValue) {
             // Arrange
@@ -125,7 +125,7 @@ namespace DataInspector.IntegrationTests {
                             // No SubIds
                         }
                     },
-                    ReferentialGlorp = new Glorp() {
+                    OtherGlorp = new Glorp() {
                         IsEnabled = true,
                         Name = "derp_refGlorp",
                         ValueF = 3.14159f

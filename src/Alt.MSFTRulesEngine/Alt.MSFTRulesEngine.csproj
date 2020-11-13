@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RulesEngine" Version="2.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataInspector.Core\DataInspector.Core.csproj" />
+    <ProjectReference Include="..\DataInspector.DataAccess\DataInspector.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>
