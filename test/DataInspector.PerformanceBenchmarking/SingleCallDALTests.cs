@@ -12,9 +12,9 @@ namespace DataInspector.PerformanceBenchmarking {
         private readonly List<string> DirectCallInputs = new List<string> {
             "DerpChild.Id",
             "DerpChild.Uuid",
-            "DerpChild.ReferentialGlorp.Name",
-            "DerpChild.ReferentialGlorp.IsEnabled",
-            "DerpChild.ReferentialGlorp.ValueF",
+            "DerpChild.OtherGlorp.Name",
+            "DerpChild.OtherGlorp.IsEnabled",
+            "DerpChild.OtherGlorp.ValueF",
             "GlorpChild.Name",
             "GlorpChild.IsEnabled",
             "GlorpChild.ValueF",
@@ -125,7 +125,7 @@ namespace DataInspector.PerformanceBenchmarking {
                             SubIds = new int[] { 1, 2, 3, 4 }
                         },
                     },
-                    ReferentialGlorp = new Glorp() {
+                    OtherGlorp = new Glorp() {
                         IsEnabled = true,
                         Name = "derp_refGlorp",
                         ValueF = 3.14159f
